@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package.json
+
+      # package-lock.json is committed after the first local install;
+      # switch this to `npm ci` once it exists.
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Build (includes TypeScript type-checking)
+        run: npm run build
+
+  # Deploy job intentionally absent until the hosting target is confirmed.
+  # OCI: add an SSH deploy step (rsync .next + restart the service, or build a
+  # container image and pull it on the instance). Vercel: connect the repo in
+  # the Vercel dashboard instead of deploying from Actions.
