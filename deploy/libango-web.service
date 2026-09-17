@@ -1,0 +1,25 @@
+[Unit]
+Description=Libango Website (Next.js standalone)
+After=network.target
+
+[Service]
+Type=simple
+User=libango
+Group=libango
+WorkingDirectory=/var/lib/libango-web/current
+EnvironmentFile=/etc/libango-web.env
+ExecStart=/usr/bin/node /var/lib/libango-web/current/server.js
+Restart=on-failure
+RestartSec=5
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/libango-web
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target
