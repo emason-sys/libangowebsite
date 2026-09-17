@@ -1,0 +1,7 @@
+# Dev host — do not index.
+# Belt-and-suspenders with the `X-Robots-Tag: noindex, nofollow` header
+# set at the nginx layer for devsite.libangolr.net.
+# When we introduce a prod host, that host serves a different robots.txt.
+
+User-agent: *
+Disallow: /

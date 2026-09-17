@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Standalone output ships a self-contained Node app under .next/standalone
+  // that the systemd unit runs directly. See deploy/README.md.
+  output: "standalone",
   async headers() {
     return [
       {
