@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          # cache: npm  # re-enable once package-lock.json is committed
 
       # Prefer the locked install; fall back until the first `npm install`
       # generates and commits `package-lock.json` (see docs/runbooks).
