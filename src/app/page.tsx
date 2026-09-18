@@ -30,9 +30,9 @@ export default function HomePage() {
               <Link className="btn btn-primary" href="/locate">
                 Locate a Vendor
               </Link>
-              <Link className="btn btn-ghost" href="/token">
+              <a className="btn btn-ghost" href="https://portal.libangolr.net/">
                 Retrieve Last Token
-              </Link>
+              </a>
             </div>
           </div>
           <div className="hero-map">
@@ -123,9 +123,9 @@ export default function HomePage() {
               Apply online — bring your business registration document.
             </p>
           </div>
-          <Link className="btn btn-primary" href="/apply">
+          <a className="btn btn-primary" href="https://portal.libangolr.net/vendor-applications/">
             Become a Vendor
-          </Link>
+          </a>
         </div>
       </div>
     </main>
