@@ -25,7 +25,7 @@ interface SiteverifyResponse {
  * Called by the client-side gate page after the Turnstile widget produces a
  * token. Verifies the token with Cloudflare's siteverify endpoint using
  * TURNSTILE_SECRET_KEY, and on success issues an HMAC-signed cookie that the
- * nginx `auth_request` module consults on every hit to portal.libangolr.net.
+ * nginx `auth_request` module consults on every hit to devportal.libangolr.net.
  *
  * Body: JSON { turnstileToken: string, next?: string }
  * Success: 200 { ok: true, next: <sanitized-path> } + Set-Cookie: libango_portal

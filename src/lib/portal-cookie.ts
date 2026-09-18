@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 /**
- * Signed HMAC session cookie for the portal reverse proxy at portal.libangolr.net.
+ * Signed HMAC session cookie for the portal reverse proxy at devportal.libangolr.net.
  *
  * The cookie proves the visitor solved a Cloudflare Turnstile challenge within
  * the TTL window. Format: `<expiryMs>.<base64url(hmac_sha256(expiryMs, secret))>`.

@@ -17,11 +17,11 @@ const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 /**
  * Portal gate page.
  *
- * Rendered under portal.libangolr.net/gate when a visitor lacks a valid
+ * Rendered under devportal.libangolr.net/gate when a visitor lacks a valid
  * `libango_portal` cookie. Presents the Cloudflare Turnstile widget; on
  * success, POSTs the token to /api/portal/verify, which issues the cookie
  * and returns the sanitized `next` target. The browser then navigates to
- * that target on the same origin (portal.libangolr.net) and nginx lets it
+ * that target on the same origin (devportal.libangolr.net) and nginx lets it
  * through to the backend at 10.0.1.177:3001.
  *
  * The page is intentionally minimal — no site header or footer — because it

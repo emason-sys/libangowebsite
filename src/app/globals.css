@@ -483,7 +483,7 @@ footer.site { border-top: 1px solid var(--line); padding-block: 28px; margin-top
   .stat:last-child { border-bottom: none; }
 }
 
-/* Portal gate — standalone verification checkpoint on portal.libangolr.net/gate */
+/* Portal gate — standalone verification checkpoint on devportal.libangolr.net/gate */
 .gate-view {
   min-height: 100vh;
   display: grid;

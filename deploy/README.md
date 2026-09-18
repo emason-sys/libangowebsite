@@ -10,7 +10,7 @@ exact configuration we're running.
 | File | Installed at | Owner | Mode |
 |---|---|---|---|
 | `nginx-devsite.conf` | `/etc/nginx/conf.d/devsite.libangolr.net.conf` | `root:root` | `0644` |
-| `nginx-portal.conf` | `/etc/nginx/conf.d/portal.libangolr.net.conf` | `root:root` | `0644` |
+| `nginx-portal.conf` | `/etc/nginx/conf.d/devportal.libangolr.net.conf` | `root:root` | `0644` |
 | `libango-web.service` | `/etc/systemd/system/libango-web.service` | `root:root` | `0644` |
 
 ## Installing
@@ -22,7 +22,7 @@ From a fresh clone on the origin (or from `/home/opc/libango-website` on
 sudo install -o root -g root -m 0644 deploy/nginx-devsite.conf \
   /etc/nginx/conf.d/devsite.libangolr.net.conf
 sudo install -o root -g root -m 0644 deploy/nginx-portal.conf \
-  /etc/nginx/conf.d/portal.libangolr.net.conf
+  /etc/nginx/conf.d/devportal.libangolr.net.conf
 sudo install -o root -g root -m 0644 deploy/libango-web.service \
   /etc/systemd/system/libango-web.service
 
@@ -39,9 +39,9 @@ Node process is listening on `127.0.0.1:3000`. It sets HSTS, the security
 headers block, and `X-Robots-Tag: noindex, nofollow` for the dev host.
 
 **`nginx-portal.conf`** — assumes the letsencrypt cert exists at
-`/etc/letsencrypt/live/portal.libangolr.net/{fullchain,privkey}.pem`
-(obtain with `sudo certbot certonly --nginx -d portal.libangolr.net`
-after the DNS A record for `portal.libangolr.net` points at this host),
+`/etc/letsencrypt/live/devportal.libangolr.net/{fullchain,privkey}.pem`
+(obtain with `sudo certbot certonly --nginx -d devportal.libangolr.net`
+after the DNS A record for `devportal.libangolr.net` points at this host),
 that the Node process is listening on `127.0.0.1:3000`, and that the
 private VCN path to the vendor portal backend at `10.0.1.177:3001` is
 open (backend host firewall accepts `10.0.0.0/24` on TCP 3001; verified

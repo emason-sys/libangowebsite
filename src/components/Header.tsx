@@ -14,9 +14,9 @@ interface NavLink {
 const LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/locate", label: "Locate a Vendor" },
-  { href: "https://portal.libangolr.net/", label: "Retrieve Token", external: true },
+  { href: "https://devportal.libangolr.net/", label: "Retrieve Token", external: true },
   {
-    href: "https://portal.libangolr.net/vendor-applications/",
+    href: "https://devportal.libangolr.net/vendor-applications/",
     label: "Become a Vendor",
     external: true,
   },
@@ -25,7 +25,7 @@ const LINKS: NavLink[] = [
 
 export function Header() {
   const pathname = usePathname();
-  // The gate page is a standalone checkpoint served under portal.libangolr.net;
+  // The gate page is a standalone checkpoint served under devportal.libangolr.net;
   // it has no room for the marketing header.
   if (pathname === "/gate") return null;
 

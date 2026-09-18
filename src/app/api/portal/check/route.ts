@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 /**
  * Portal gate — nginx `auth_request` validator.
  *
- * Called internally by the nginx server block for portal.libangolr.net on
+ * Called internally by the nginx server block for devportal.libangolr.net on
  * every protected request. Reads the `libango_portal` cookie from the client's
  * headers (forwarded by nginx), verifies its HMAC signature and expiry, and
  * returns 200 (allow) or 401 (deny). nginx maps a 401 to a 302 redirect to
