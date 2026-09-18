@@ -28,6 +28,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: `Missing field: ${key}` }, { status: 400 });
     }
   }
+  const turnstileToken = form.get("turnstileToken");
+  if (typeof turnstileToken !== "string" || turnstileToken.trim().length === 0) {
+    return NextResponse.json({ error: "Complete the human verification first." }, { status: 400 });
+  }
   const doc = form.get("document");
   if (!(doc instanceof File) || doc.size === 0) {
     return NextResponse.json({ error: "Attach the business registration document." }, { status: 400 });

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { COUNTIES, COUNTY_NAMES } from "@/lib/counties";
+import { Turnstile } from "@/components/Turnstile";
 
 interface ApplySuccess {
   reference: string;
@@ -20,6 +21,8 @@ export default function ApplyPage() {
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [doc, setDoc] = useState<File | null>(null);
+  const [captcha, setCaptcha] = useState<string | null>(null);
+  const [humanErr, setHumanErr] = useState(false);
   const [errs, setErrs] = useState<Record<string, boolean>>({});
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -40,7 +43,8 @@ export default function ApplyPage() {
       doc: !doc || doc.size > MAX_DOC_BYTES,
     };
     setErrs(bad);
-    if (Object.values(bad).some(Boolean)) return;
+    setHumanErr(!captcha);
+    if (Object.values(bad).some(Boolean) || !captcha) return;
     setBusy(true);
     setError("");
     try {
@@ -52,6 +56,7 @@ export default function ApplyPage() {
       fd.set("city", city);
       fd.set("address", address.trim());
       fd.set("document", doc as File);
+      fd.set("turnstileToken", captcha);
       const res = await fetch("/api/apply", { method: "POST", body: fd });
       if (!res.ok) {
         const body = await res.json().catch(() => null);
@@ -219,6 +224,15 @@ export default function ApplyPage() {
                 )}
               </label>
               {errs.doc && <p className="form-err">Attach your registration document (.pdf or .jpg, up to 10 MB).</p>}
+            </div>
+            <div className="field">
+              <Turnstile
+                onToken={(t) => {
+                  setCaptcha(t);
+                  if (t) setHumanErr(false);
+                }}
+              />
+              {humanErr && <p className="form-err">Please complete the verification first.</p>}
             </div>
             {error && <p className="form-err">{error}</p>}
             <div className="form-foot">
