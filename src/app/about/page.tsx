@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { CONTACTS } from "@/lib/vendors";
 
 export const metadata: Metadata = { title: "About" };
@@ -80,7 +79,7 @@ export default function AboutPage() {
             <summary>I lost my token before entering it. What now?</summary>
             <div className="a">
               <p>
-                Use <Link href="/token">Retrieve Last Token</Link>. Enter your meter number, pass the
+                Use <a href="https://devportal.libangolr.net/">Retrieve Last Token</a>. Enter your meter number, pass the
                 quick human check, and we&apos;ll show the most recent token issued to that meter —
                 the same 20 digits that were on your receipt. It can only reveal your last token; it
                 can never create new credit.
@@ -91,7 +90,7 @@ export default function AboutPage() {
             <summary>How do I know I got the full amount I paid for?</summary>
             <div className="a">
               <p>
-                Every token tells on itself. Run <Link href="/token">Retrieve Last Token</Link> for
+                Every token tells on itself. Run <a href="https://devportal.libangolr.net/">Retrieve Last Token</a> for
                 your meter and it shows the token alongside the exact amount paid and the
                 kilowatt-hours it carries — so what you handed the vendor and what landed on your
                 meter are never a matter of trust, just a lookup. If the numbers don&apos;t match what
@@ -125,7 +124,7 @@ export default function AboutPage() {
             <summary>How do I become a Libango vendor?</summary>
             <div className="a">
               <p>
-                Apply on the <Link href="/apply">Become a Vendor</Link> page with your business name,
+                Apply on the <a href="https://devportal.libangolr.net/vendor-applications/">Become a Vendor</a> page with your business name,
                 contacts, location, and your business registration document (PDF or JPG). Our vendor
                 team reviews every application and responds within 5 working days. For existing-vendor
                 questions, call Vendor Support on{" "}

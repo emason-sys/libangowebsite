@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { AREAS, AREA_BY_KEY, VENDORS, type Vendor } from "@/lib/vendors";
 import { directionsUrl, distanceKm, vendorLat, vendorLon } from "@/lib/geo";
 import { LiberiaMap, MetroInset, METRO_KEY } from "@/components/maps";
@@ -193,7 +192,7 @@ export default function LocatePage() {
               {rows.length === 0 ? (
                 <p className="empty">
                   No vendors match those filters yet. Try another area — or{" "}
-                  <Link href="/apply">apply to become the first</Link>.
+                  <a href="https://devportal.libangolr.net/vendor-applications/">apply to become the first</a>.
                 </p>
               ) : (
                 rows.map((o) => (
